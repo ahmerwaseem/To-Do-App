@@ -11,7 +11,8 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var todos = require('./routes/todos');
+var todos = require('./routes/todos/index');
+var todosAPI = require('./routes/todos/api');
 
 var app = express();
 
@@ -25,7 +26,9 @@ app.use(
     debug: true,
    })
    );
-
+browserify.settings({
+  transform: ['hbsfy']
+});
 app.get('/javascripts/bundle.js', browserify('./client/script.js'));
 var dbConnectionString = process.env.MONGODB_URI || 'mongodb://localhost';
 mongoose.connect(dbConnectionString + '/todos');
@@ -54,6 +57,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/todos',todos);
+app.use('/todos/api',todosAPI);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

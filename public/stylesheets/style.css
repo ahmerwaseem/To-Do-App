@@ -1,9 +1,17 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
-  body a {
-    color: #00B7FF; }
   body ul {
     list-style-type: none; }
     body ul .checked span {
       text-decoration: line-through; }
+    body ul .deleteItem a {
+      color: #00B7FF;
+      cursor: pointer; }
+      body ul .deleteItem a:hover {
+        text-decoration: underline;
+        color: red;
+        font-weight: bolder; }
+  body .editing span {
+    border-color: blue;
+    border-radius: 2px; }

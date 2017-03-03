@@ -1,12 +1,12 @@
 $font-stack: "Lucida Grande", Helvetica, Arial, sans-serif;
 $primary-link-color: #00B7FF;
+$border-editable-items:  blue;
 
 body{
 	padding: 50px;
 	font: 14px $font-stack;
-	a {
-		color: $primary-link-color;
-	}
+
+
 	ul {
 		list-style-type: none;
 		.checked {
@@ -14,5 +14,24 @@ body{
 				text-decoration: line-through;
 			}
 		}
+
+		.deleteItem{
+			a {
+				color: $primary-link-color;
+				cursor: pointer;
+				&:hover{
+					text-decoration: underline;
+					color: red;
+					font-weight: bolder;
+				}
+			}
+		}
 	}
+	.editing{
+		span{
+			border-color: $border-editable-items;
+			border-radius: 2px;
+		}
+	}
+
 }
