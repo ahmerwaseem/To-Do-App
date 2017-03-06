@@ -48,12 +48,6 @@ $(function() {
          id = $li.attr('id'),
          checked = $input.checked,
          data = { done: checked };
-         console.log($this);
-         console.log($input);
-         console.log($li);
-         console.log(id);
-         console.log(checked);
-         console.log(data);
 
      updateTodo(id, data, function(d) {
        $this.parent().toggleClass('checked');
